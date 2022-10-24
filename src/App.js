@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+import { ErrorBoundary } from 'react-error-boundary';
 import './App.css';
+import ErrorFallbackUI from './components/ErrorFallback';
+import NavHeader from './components/NavHeader';
+import AppRoutes from './routes';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div>My App </div>
+        <NavHeader />
       </header>
+      <ErrorBoundary FallbackComponent={ErrorFallbackUI}>
+        <AppRoutes />
+      </ErrorBoundary>
     </div>
   );
 }

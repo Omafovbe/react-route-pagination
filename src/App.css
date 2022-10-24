@@ -1,38 +1,213 @@
+:root {
+  --main-color: #ecf0f1;
+  --point-color: #adc9d3;
+  --size: 5px;
+}
+
 .App {
-  text-align: center;
+  min-height: 100vh;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  background-image: linear-gradient(to bottom right, #09203F, #537895);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
-  background-color: #282c34;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 80%;
+  margin: 0 auto;
+  padding: 8px;
+  
+}
+
+.App-body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.error-msg {
+  box-shadow: 6px 8px 15px 0px rgba(0,0,0,0.75) inset -4px -4px 15px 0px rgba(0,0,0,0.75) inset;
+  width: 380px;
+  background-color: #04172f;
+  font-size: 14px;
+  padding: 15px;
+  text-align: center;
+  margin: 150px auto;
+  border-radius: 10px;
+}
+
+nav ul {
+  margin: 0;
+}
+
+nav a {
+  color: #fff;
+  padding: 5px;
+  text-decoration: none;
+}
+
+.nav-active {
+  color: #369ef2
+}
+
+.nav-inactive {
+  color: #fff;
+}
+
+nav ul>li {
+  display: inline-block;
+  padding-right: 15px;
+}
+
+.statebox {
+  align-self: center;
+  justify-self: center;
+  padding: 1rem;
+}
+
+.statesBox {
+  display: flex;
+  margin: 2rem;
+  
+}
+
+.statesNav {
+  border-right: solid 1px;
+  padding: 1rem;
+  overflow-y: auto;
+  height: 400px;
+  scrollbar-width: thin;
+  scrollbar-color: #04172f;
+}
+
+.statesNav::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* .statesNav::-webkit-scrollbar-track {
+  background: #04172f;
+} */
+
+.statesNav::-webkit-scrollbar-thumb {
+  background-color: #3d70ad;
+  border-radius: 10px;
+}
+
+.users {
+  display: flex;
+  flex-direction: column;
+  margin: 25px 5px 20px;
+  align-items: center;
+  justify-items: center;
+  gap: 10px;
+}
+
+.card {
+  display: grid;
+  font-size: 15px;
+  grid-template-columns: 60px 320px;
+  grid-template-rows: auto;
+  padding: 10px;
+  margin: 5px 2px;
+  gap: 10px;
+  border-radius: 10px;
+  background-color: #09203F;
+  grid-template-areas:"pic desc" ;
+}
+
+.profileImg {
+  align-self: center;
+  grid-area: pic;
+  border-radius: 50%;
+    
+}
+
+.desc {
+  grid-area: desc;
+  margin-left: 20px;
+}
+
+.user__email {
+  margin-top: 10px;
+  color: #3d94f6;
+}
+
+.pageBtn {
+  font-size:15px;
+  padding: 5px 8px;
+  border:1px solid #337fed;
+  color:#ffffff;
+  margin: 0 10px;
+  font-weight:bold;
+  border-radius: 6px;
+  box-shadow:inset 0px 1px 0px 0px #97c4fe;
+  text-shadow:inset 0px 1px 0px #1570cd;
+  background:linear-gradient(#3d94f6, #1e62d0);
+}
+
+.pageBtn:hover:enabled {
+  background: linear-gradient(#1e62d0, #3d94f6);
+}
+
+.pageBtn:disabled {
+  background:linear-gradient(#f2f5f8, #bdbebf);
+  cursor: not-allowed;
+  border:1px solid #ebf1f8;
+  color: lightslategray;
+}
+
+.pageNumBtn {
+  border: 1px solid #fff;
+  background-color: transparent;
+  padding: 5px 10px;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 15px;
+  margin: 0 4px;
+  transition-duration: 0.4s;
+}
+
+.pageNumBtn:hover {
+  background-color:#337fed;
+  border-color: #337fed;
+}
+
+.loader {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  align-content: center; 
+  justify-content: center;  
+  z-index: 100000;
+}
+
+.loader__element {
+  border-radius: 100%;
+  border: var(--size) solid var(--point-color);
+  margin: calc(var(--size)*2);
+}
+
+.loader__element:nth-child(1) {
+  animation: preloader .6s ease-in-out alternate infinite;
+}
+.loader__element:nth-child(2) {
+  animation: preloader .6s ease-in-out alternate .2s infinite;
+}
+
+.loader__element:nth-child(3) {
+  animation: preloader .6s ease-in-out alternate .4s infinite;
+}
+
+@keyframes preloader {
+  100% { transform: scale(2); }
 }
