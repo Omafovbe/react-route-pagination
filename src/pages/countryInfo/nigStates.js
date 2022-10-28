@@ -9,7 +9,7 @@ const NigStates = () => {
         className="statesNav">
         {nigStates.map((nigState) => (
           <Link
-            style={{ display: "block", margin: "1rem 0" }}
+            style={{ display: "block", margin: "0.5rem 0" }}
             to={`/states/${nigState.number}`}
             key={nigState.number}
           >
