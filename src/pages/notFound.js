@@ -1,5 +1,5 @@
 export default function NotFound() {
     return (
-        <div>😒 😢 The page you requested couldn't be found.</div>
+        <div>😒 😢 We can't find that page.</div>
     )
 }
